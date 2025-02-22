@@ -29,11 +29,11 @@
                 <p class="mt-2 text-gray-600">Capacité: <span class="font-medium">{{$salles->capacite}} personnes</span></p>
                 <p class="mt-2 text-gray-600">Prix: <span class="font-medium">{{$salles->prix}}€/jour</span></p>
                 <button
-                    onclick="reserveRoom('salle A')"
                     class="mt-4 w-full bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                 >
                     Réserver
-                </button>
+                </button
+                   >
             </div>
         </div>
         @endforeach

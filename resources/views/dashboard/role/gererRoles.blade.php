@@ -47,12 +47,12 @@
         <!-- Modal Overlay for Creating Room -->
         <div id="modalOverlay" class="fixed z-40 flex inset-0 bg-black bg-opacity-50 hidden justify-center items-center">
             <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
-                <h2 class="text-lg font-semibold mb-4">Créer une nouvelle salle</h2>
-                <form id="createRoomForm" action="/admin/salle" method="post" >
+                <h2 class="text-lg font-semibold mb-4">Créer Role</h2>
+                <form id="createRoomForm" action="/admin/role" method="post" >
                     @csrf
                     <div class="mb-4">
-                        <label for="nom" class="block text-sm font-medium text-gray-700">Nom de la salle</label>
-                        <input type="text" id="nom" name="nom" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        <label for="role_name" class="block text-sm font-medium text-gray-700">Nom Role</label>
+                        <input type="text" id="role_name" name="role_name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                     </div>
                     <div class="flex justify-end">
                         <button type="button" id="closeModalButton" class="bg-gray-500 text-white px-4 py-2 rounded mr-2 hover:bg-gray-600">Annuler</button>
@@ -67,35 +67,27 @@
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th scope="col" class="px-6 py-3">Nom de la salle</th>
-                    <th scope="col" class="px-6 py-3">Capacité</th>
-                    <th scope="col" class="px-6 py-3">Prix</th>
+                    <th scope="col" class="px-6 py-3">Role</th>
                     <th scope="col" class="px-6 py-3">Action</th>
                 </tr>
                 </thead>
-{{--                @foreach($salles as $salle)--}}
+                @foreach($roles as $role)
                     <tbody>
                     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-{{--                            {{$salle->nom}}--}}
+                            {{$role -> role_name}}
                         </th>
                         <td class="px-6 py-4">
-{{--                            {{$salle->capacite}}--}}
+                            <a href={{'/admin/role/edit/'. $role->id}} class="text-blue-600 hover:underline modifierButton">Modifier</a>
+                            <form method="post" action="{{url('/admin/role/delete/'. $role->id)}}" class="inline">
+                                @csrf
+                                @method('DELETE')
+                                <input type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline ml-4" value="Supprimer" />
+                            </form>
                         </td>
-                        <td class="px-6 py-4">
-{{--                            {{$salle->prix}}--}}
-                        </td>
-{{--                        <td class="px-6 py-4">--}}
-{{--                            <a href={{'/admin/salle/edit/'. $salle->id}} class="text-blue-600 hover:underline modifierButton">Modifier</a>--}}
-{{--                            <form method="post" action="{{url('/admin/salle/delete/'. $salle->id)}}" class="inline">--}}
-{{--                                @csrf--}}
-{{--                                @method('DELETE')--}}
-{{--                                <input type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline ml-4" value="Supprimer" />--}}
-{{--                            </form>--}}
-{{--                        </td>--}}
                     </tr>
                     </tbody>
-{{--                @endforeach--}}
+                @endforeach
             </table>
         </div>
     </div>
