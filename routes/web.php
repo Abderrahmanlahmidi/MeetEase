@@ -41,6 +41,7 @@ Route::put('/admin/utilisateur/update/{utilisateur}', [UtilisateurController::cl
 
 //--Reservation Routes
 Route::get('/admin/reservation', [ReservationController::class,'showReservation']);
+Route::post('/admin/reservation', [ReservationController::class,'createReservation']);
 
 
 
