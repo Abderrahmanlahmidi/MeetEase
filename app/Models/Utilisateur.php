@@ -15,8 +15,17 @@ class Utilisateur extends Model
             'email',
             'age',
             'password',
-            'role_name'
+            'role_id'
     ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    public function reservations(){
+        return $this->hasMany(Reservation::class, 'user_id');
+    }
 
 
 

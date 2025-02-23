@@ -11,15 +11,14 @@ return new class extends Migration
      *
      * @return void
      */
-
-
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('role_name');
-            $table->timestamps();
+        Schema::table('reservations', function (Blueprint $table) {
+            $table->enum('status', ['pending', 'confirmed', 'canceled'])
+                ->default('pending')
+                ->after('salle_id');
         });
+
     }
 
     /**
@@ -29,6 +28,8 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('reservations', function (Blueprint $table) {
+            $table->dropColumn('status');
+        });
     }
 };

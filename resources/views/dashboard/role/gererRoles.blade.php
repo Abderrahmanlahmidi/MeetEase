@@ -33,6 +33,16 @@
                         Roles
                     </a>
                 </li>
+                <li>
+                    <a href="/admin/utilisateur" class="block p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">
+                        Utilisateurs
+                    </a>
+                </li>
+                <li>
+                    <a href="/admin/reservation" class="block p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700">
+                        Reservation
+                    </a>
+                </li>
             </ul>
         </nav>
     </aside>
@@ -41,7 +51,7 @@
     <div class="col-span-10 p-6">
         <!-- Create New Room Button -->
         <button id="createRoomButton" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 hover:bg-blue-600">
-            Créer une nouvelle salle
+            Créer une nouvelle role
         </button>
 
         <!-- Modal Overlay for Creating Room -->

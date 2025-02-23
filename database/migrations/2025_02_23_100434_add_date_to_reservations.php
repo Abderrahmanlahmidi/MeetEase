@@ -11,14 +11,10 @@ return new class extends Migration
      *
      * @return void
      */
-
-
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('role_name');
-            $table->timestamps();
+        Schema::table('reservations', function (Blueprint $table) {
+            $table->date('date_reservation');
         });
     }
 
@@ -29,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('reservations', function (Blueprint $table) {
+            //
+        });
     }
 };

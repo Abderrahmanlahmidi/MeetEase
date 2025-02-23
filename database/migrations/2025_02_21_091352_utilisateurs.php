@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->integer("age");
             $table->string('password');
-            $table->string('role_name');
             $table->unsignedBigInteger('role_id');
             $table->foreign('role_id')->references('id')->on('roles');
             $table->timestamps();

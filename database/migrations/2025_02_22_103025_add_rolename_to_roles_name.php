@@ -11,24 +11,17 @@ return new class extends Migration
      *
      * @return void
      */
-
-
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('role_name');
-            $table->timestamps();
+        Schema::table('roles', function (Blueprint $table) {
+            $table->string('role_name')->after('id')->nullable();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        //
+        Schema::table('roles', function (Blueprint $table) {
+            $table->dropColumn('role_name');
+        });
     }
 };

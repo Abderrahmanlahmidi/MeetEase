@@ -12,15 +12,13 @@ return new class extends Migration
      * @return void
      */
 
+     public function up()
+     {
+         Schema::table('roles', function (Blueprint $table) {
+             $table->string('role_name')->after('created_at')->nullable();
+         });
+     }
 
-    public function up()
-    {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->id();
-            $table->string('role_name');
-            $table->timestamps();
-        });
-    }
 
     /**
      * Reverse the migrations.

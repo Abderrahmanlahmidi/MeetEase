@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\SalleController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UtilisateurController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,7 +32,15 @@ Route::delete('/admin/role/delete/{role}', [RoleController::class,'destroyRole']
 Route::get('/admin/role/edit/{role}', [RoleController::class,'editRole']);
 Route::put('/admin/role/update/{role}', [RoleController::class,'updateRole']);
 
+//--Utilisateur Routes
+Route::get('/admin/utilisateur', [UtilisateurController::class,'showUtilisateur']);
+Route::post('/admin/utilisateur', [UtilisateurController::class,'createUtilisateur']);
+Route::delete('/admin/utilisateur/delete/{utilisateur}', [UtilisateurController::class,'destroyUtilisateur']);
+Route::get('/admin/utilisateur/edit/{utilisateur}', [UtilisateurController::class,'editUtilisateur']);
+Route::put('/admin/utilisateur/update/{utilisateur}', [UtilisateurController::class,'updateUtilisateur']);
 
+//--Reservation Routes
+Route::get('/admin/reservation', [ReservationController::class,'showReservation']);
 
 
 
